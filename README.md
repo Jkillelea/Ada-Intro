@@ -51,3 +51,38 @@ end Does_Nothing;
 ```
 
 Note that Ada requires us to explicitly say `null;`, so there's no ambiguity about whether we intended something to happen.
+
+## Variable declaration and assignment
+Variables are declared in specific places in Ada with the syntax `Variable : Type := Value`. Ada uses `:=` for assignment, and regular `=` for equality tests. Variables do not always need to be initialized - once can write `Variable : Type;`.
+
+```ada
+with Ada.Text_IO;
+procedure Hello is
+  Out_String : String := "Hello";
+begin
+  Ada.Text_IO.Put_Line (Out_String);
+end Hello;
+```
+
+If you need to declare more variables, you need a `declare - begin - end` block:
+
+```ada
+with Ada.Text_IO;
+procedure Hello is
+begin
+  declare
+    Out_String : String := "Hello";
+  begin
+    Ada.Text_IO.Put_Line (Out_String);
+  end;
+end Hello;
+```
+
+## Functions and Procedures
+Ada differentiates between functions and procedures. A function has a return type, while a procedure does not.
+
+```ada
+procedure Hello is
+begin
+end Hello;
+```

@@ -30,3 +30,24 @@ end Hello_World;
     - This calls the procedure `Put_Line` in the package `Ada.Text_IO`. `Put_Line` takes an argument of type `String`, which is a **fixed length** array of characters;
   - Line 6: `end Hello_World;`
     - This ends the block. Note that we name the block that's being ended, and a semicolon finishes the statement.
+
+## Compile and Run
+```bash
+$ gnatmake hello_world.adb
+$ ./hello_world
+Hello World
+```
+
+`Gnatmake` does all the steps needed on simple projects. A build system called GPR is also available.
+
+## The Simplest Program
+This program does nothing
+
+```ada
+procedure Does_Nothing is
+begin
+  null;
+end Does_Nothing;
+```
+
+Note that Ada requires us to explicitly say `null;`, so there's no ambiguity about whether we intended something to happen.

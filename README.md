@@ -82,7 +82,36 @@ end Hello;
 Ada differentiates between functions and procedures. A function has a return type, while a procedure does not.
 
 ```ada
+with Ada.Text_IO;
+
 procedure Hello is
+  function Make_A_String return String is
+  begin
+    return "A String";
+  end Make_A_String;
 begin
+  Ada.Text_IO.Put_Line (Make_A_String);
 end Hello;
+```
+
+Note where the function is declared - a file can only have one 'compilation unit'. In this case, the main procedure is the only top level declaration allowed.
+
+## Packages
+The fundamental organization structure in Ada is the package. Packages are always split into a body and a spec, with file extensions `.adb` and `.ads`. A spec defines the interface of the package, any types, constants, and private variables, and any library imports. The body defines the body of each function and procedure.
+
+```ada
+-- simple_package.ads
+with Ada.Text_IO;
+package Simple_Package is
+  procedure Hello;
+end Simple_Package;
+```
+```ada
+-- simple_package.adb
+package body Simple_Package is
+  procedure Hello is
+  begin
+    Ada.Text_IO.Put_Line ("Hello");
+  end Hello;
+end Simple_Package;
 ```
